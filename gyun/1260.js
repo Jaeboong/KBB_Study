@@ -8,12 +8,12 @@ for (const [a, b] of edges) { //정점 인접 리스트
     graph[a - 1].push(b - 1);
     graph[b - 1].push(a - 1);
 }
-console.log(graph);
 
 // 각 정점의 인접 리스트를 오름차순으로 정렬
 for (let i = 0; i < N; i++) {
     graph[i].sort((a, b) => a - b);
 }
+
 console.log(graph);
 
 // DFS
@@ -44,9 +44,7 @@ function bfs(start) {
     visited[start - 1] = true;
 
     while (queue.length > 0) {
-        console.log(queue);
         const node = queue.shift();
-        console.log(queue);
         result.push(node + 1);
 
         for (const neighbor of graph[node]) {
